@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { db } from '../firebase/config';
 import { collection, onSnapshot } from 'firebase/firestore';
 
+// hook to download documents from firestore
+// c param stands for collection name
 export const useCollection = (c) => {
   const [documents, setDocuments] = useState(null);
 
@@ -16,7 +18,9 @@ export const useCollection = (c) => {
       });
       setDocuments(results);
     });
-      return () => unsub()
+
+    // clean up function invoke
+    return () => unsub();
   }, [c]);
   return { documents };
 };
