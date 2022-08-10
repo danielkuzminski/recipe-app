@@ -1,7 +1,5 @@
 import './App.css';
 
-//firebase
-import {useCollection} from './hooks/useCollection'
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 
 //components
