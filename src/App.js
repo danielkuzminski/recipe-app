@@ -12,14 +12,20 @@ import Create from './pages/create/Create'
 import Search from './pages/search/Search'
 import Recipe from './pages/recipe/Recipe'
 
+// hooks
+import {useCollection} from './hooks/useCollection'
+
+
 function App() {
+
+  const {documents: recipes} = useCollection('recipes')
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <Navbar recipes={recipes} />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home recipes={recipes} />}  />
           <Route path='/create' element={<Create />} />
           <Route path='/search' element={<Search />} />
           <Route path='/recipes/:id' element={<Recipe />} />

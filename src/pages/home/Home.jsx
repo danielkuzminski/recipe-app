@@ -1,6 +1,3 @@
-//firebase
-import {useCollection} from '../../hooks/useCollection'
-
 //style
 import './Home.css'
 
@@ -8,9 +5,9 @@ import './Home.css'
 import RecipeList from '../../components/RecipeList'
 
 
-export default function Home() {
+export default function Home({recipes}) {
 
-  const {documents: recipes} = useCollection('recipes')
+  
 
   return (
     <div className='home'>
